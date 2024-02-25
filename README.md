@@ -1,5 +1,9 @@
 # Tiny Distributed System
 
+![Static Badge](https://img.shields.io/badge/go-b)
+![Static Badge](https://img.shields.io/badge/microservice-red)
+![Static Badge](https://img.shields.io/badge/distributed-system-blue)
+
 This is a very simple distributed system implemented with Golang. 
 
 In this system, we realize the service startup, the service registry, the service notification, heartbeat and so on. 
