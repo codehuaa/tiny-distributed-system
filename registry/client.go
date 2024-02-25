@@ -17,6 +17,17 @@ import (
 )
 
 func RegisterService(r Registration) error {
+	// heartbeat handler binding
+	heartbeatURL, err := url.Parse(r.HeartbeatURL)
+	if err != nil {
+		return err
+	}
+	http.HandleFunc(heartbeatURL.Path, func(w http.ResponseWriter, r *http.Request) {
+		// we could do some other monitor actions here, such as Cpu, Memory etc.
+		w.WriteHeader(http.StatusOK)
+	})
+
+	// update handler binding
 	serviceUpdateURL, err := url.Parse(r.ServiceUpdatedURL)
 	if err != nil {
 		return err
@@ -24,17 +35,14 @@ func RegisterService(r Registration) error {
 	http.Handle(serviceUpdateURL.Path, &serviceUpdateHandler{})
 
 	buf := new(bytes.Buffer)
-	enc := json.NewEncoder(buf)
-	err = enc.Encode(r)
+	err = json.NewEncoder(buf).Encode(r)
 	if err != nil {
 		return err
 	}
-
 	resp, err := http.Post(ServicesUrl, "application/json", buf)
 	if err != nil {
 		return err
 	}
-
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("Failed to register service. Registy service responded with code %v", resp.StatusCode)
 	}

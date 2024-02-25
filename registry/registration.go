@@ -15,6 +15,7 @@ type Registration struct {
 	ServiceUrl        string
 	RequiredServices  []ServiceName
 	ServiceUpdatedURL string
+	HeartbeatURL      string
 }
 
 const (

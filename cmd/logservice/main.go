@@ -30,6 +30,7 @@ func main() {
 			ServiceUrl:        serviceAddr,
 			RequiredServices:  make([]registry.ServiceName, 0),
 			ServiceUpdatedURL: serviceAddr + "/services",
+			HeartbeatURL:      serviceAddr + "/heartbeat",
 		},
 		log.RegisterHandlers,
 	)

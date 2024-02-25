@@ -16,7 +16,7 @@ import (
 	"tiny_distributed_system/registry"
 )
 
-// Start start the service
+// Start the service
 func Start(ctx context.Context, host, port string, reg registry.Registration, registerHandlerFunc func()) (context.Context, error) {
 	registerHandlerFunc()
 	ctx = startService(ctx, reg.ServiceName, host, port)

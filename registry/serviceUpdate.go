@@ -10,6 +10,7 @@ package registry
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -27,5 +28,6 @@ func (suh *serviceUpdateHandler) ServeHTTP(w http.ResponseWriter, r *http.Reques
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	fmt.Printf("Received updated %v\n", p)
 	prov.Update(p)
 }
