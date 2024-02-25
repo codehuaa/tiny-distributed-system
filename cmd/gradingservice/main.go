@@ -40,6 +40,7 @@ func main() {
 		stlog.Fatal(err)
 	}
 
+	// Try to get required service 'and' maybe you could finish it with more flexible codes
 	if logProvider, err := registry.GetProviders(registry.LogService); err == nil {
 		fmt.Printf("Logging service found at: %s\n", logProvider)
 		log.SetClientLogger(logProvider, r.ServiceName)

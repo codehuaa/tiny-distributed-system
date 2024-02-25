@@ -38,6 +38,8 @@ func main() {
 		stlog.Fatalln(err)
 	}
 
+	// if log_service require some other services, you could get it here
+
 	<-ctx.Done()
 
 	fmt.Println("Shutting down the log service.")
