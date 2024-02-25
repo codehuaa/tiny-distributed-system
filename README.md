@@ -42,7 +42,7 @@ Then, as the following figure shown, you could see the `registry_service` has fo
 And `grading_service` found the required service `logging_service`. 
 Besides, `registry_service` has started the heartbeat to check the status of other services. 
 
-![](D:\Codes\go\tiny_distributed_system\pics\running.png)
+![running.png](pics%2Frunning.png)
 
 ### 2. shut down
 You could shut down the service by **pressing any key and Enter**. 
